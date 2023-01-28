@@ -14,7 +14,7 @@ Vue.createApp({
     },
     computed: {
         monsterBarStyles () {
-            if (this.monsterHealth < 20) {
+            if (this.monsterHealth < 20 && this.monsterHealth > 0) {
                 return {backgroundColor: "red", width: this.monsterHealth + "%"};
             } else if (this.monsterHealth < 0) {
                 return {backgroundColor: "red", width: "0%"};
@@ -22,7 +22,7 @@ Vue.createApp({
             return {width: this.monsterHealth + '%'};
         },
         playerBarStyles () {
-            if (this.playerHealth < 20) {
+            if (this.playerHealth < 20 && this.playerHealth > 0) {
                 return {backgroundColor: "red", width: this.playerHealth + "%"};
             } else if (this.playerHealth < 0) {
                 return {backgroundColor: "red", width: "0%"};
