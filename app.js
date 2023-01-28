@@ -14,19 +14,23 @@ Vue.createApp({
     },
     computed: {
         monsterBarStyles () {
-            if (this.monsterHealth < 0) {
-                return {width: "0%"};
+            if (this.monsterHealth < 20) {
+                return {backgroundColor: "red", width: this.monsterHealth + "%"};
+            } else if (this.monsterHealth < 0) {
+                return {backgroundColor: "red", width: "0%"};
             }
             return {width: this.monsterHealth + '%'};
         },
         playerBarStyles () {
-            if (this.playerHealth < 0) {
-                return {width: "0%"};
+            if (this.playerHealth < 20) {
+                return {backgroundColor: "red", width: this.playerHealth + "%"};
+            } else if (this.playerHealth < 0) {
+                return {backgroundColor: "red", width: "0%"};
             }
             return {width: this.playerHealth + '%'};
         },
         mayUseSpacialAttack () {
-            return this.currentRound % 3 !== 0
+            return this.currentRound % 3 !== 0;
         },
         fullHealth () {
             return this.playerHealth === 100;
